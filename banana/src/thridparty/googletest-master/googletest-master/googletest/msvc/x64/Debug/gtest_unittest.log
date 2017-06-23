@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (gtest.vcxproj, gtest_main.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  gtest_unittest.cc
+  gtest_unittest.vcxproj -> F:\10 源代码\self_practice\banana\source\thridparty\googletest-master\googletest-master\googletest\msvc\x64\Debug\gtest_unittest.exe
+  gtest_unittest.vcxproj -> F:\10 源代码\self_practice\banana\source\thridparty\googletest-master\googletest-master\googletest\msvc\x64\Debug\gtest_unittest.pdb (Full PDB)

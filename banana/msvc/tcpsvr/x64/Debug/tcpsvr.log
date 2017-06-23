@@ -1,0 +1,5 @@
+﻿  main.cpp
+f:\10 源代码\self_practice\banana\msvc\tcpsvr\main.cpp(47): warning C4244: 'initializing': conversion from 'SOCKET' to 'int', possible loss of data
+f:\10 源代码\self_practice\banana\msvc\tcpsvr\main.cpp(126): warning C4244: '=': conversion from 'SOCKET' to 'int', possible loss of data
+  tcpsvr.vcxproj -> F:\10 源代码\self_practice\banana\msvc\x64\Debug\tcpsvr.exe
+  tcpsvr.vcxproj -> F:\10 源代码\self_practice\banana\msvc\x64\Debug\tcpsvr.pdb (Full PDB)

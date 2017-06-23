@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (gtest.vcxproj, gtest_main.vcxproj, gtest_unittest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  gtest_prod_test.cc
+..\test\gtest_prod_test.cc : fatal error C1041: cannot open program database 'F:\10 源代码\self_practice\banana\source\thridparty\googletest-master\googletest-master\googletest\msvc\x64\Release\vc140.pdb'; if multiple CL.EXE write to the same .PDB file, please use /FS
+  production.cc
+..\test\production.cc : fatal error C1041: cannot open program database 'F:\10 源代码\self_practice\banana\source\thridparty\googletest-master\googletest-master\googletest\msvc\x64\Release\vc140.pdb'; if multiple CL.EXE write to the same .PDB file, please use /FS
+  Generating Code...

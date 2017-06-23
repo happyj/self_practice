@@ -1,0 +1,5 @@
+﻿  gtest_prod_test.cc
+  production.cc
+  Generating Code...
+  gtest_prod_test.vcxproj -> F:\10 源代码\self_practice\banana\source\thridparty\googletest-master\googletest-master\googletest\msvc\gtest/Release\gtest_prod_test.exe
+  gtest_prod_test.vcxproj -> gtest/Release\gtest_prod_test.pdb (Full PDB)
