@@ -1,3 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (unittest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Socket.cpp
-f:\10 源代码\self_practice\banana\src\core\socket.cpp(29): warning C4244: '=': conversion from 'SOCKET' to 'int', possible loss of data
