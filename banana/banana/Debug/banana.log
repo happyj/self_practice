@@ -1,2 +1,0 @@
-﻿MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-F:\10 源代码\self_practice\banana\Debug\banana.exe : fatal error LNK1120: 1 unresolved externals

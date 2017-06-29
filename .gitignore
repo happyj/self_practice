@@ -1,0 +1,5 @@
+/banana/msvc/banana.VC.db
+/banana/msvc/unittest.vcxproj.user
+x64
+.vs
+/banana/msvc/*.user

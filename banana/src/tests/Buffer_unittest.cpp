@@ -10,7 +10,7 @@ class CBufferTest : public testing::Test
 protected:
 	virtual void SetUp()
 	{
-// 		m_Buf = new CBuffer(10);
+		m_Buf = new CBuffer(10);
 	}
 	virtual void TearDown()
 	{
@@ -23,7 +23,7 @@ protected:
 
 TEST_F(CBufferTest, testBufferWrite)
 {
-// 	EXPECT_EQ(m_Buf->Capacity(), 10);
+	EXPECT_EQ(m_Buf->Capacity(), 10);
 // 	EXPECT_EQ(buffer.IsEmpty(), true);
 // 	EXPECT_EQ(buffer.IsFull(), false);
 // 	EXPECT_EQ(buffer.UsedCapacity(), 0);

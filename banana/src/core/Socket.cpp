@@ -39,6 +39,7 @@ namespace Banana
 #ifdef _WIN32
 			if (::closesocket(_sockfd) < 0)
 #else
+			::shutdown(_sockfd, SHUT_RDWR);
 			if (::close(_sockfd) < 0)
 #endif // DEBUG
 			{
