@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\tests\Buffer_unittest.cpp" />
+    <ClCompile Include="..\src\tests\IpAddress_unittest.cpp" />
     <ClCompile Include="..\src\tests\main.cpp" />
   </ItemGroup>
   <ItemGroup>

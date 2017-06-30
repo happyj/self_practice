@@ -19,20 +19,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\core\Acceptor.cpp" />
     <ClCompile Include="..\src\core\Buffer.cpp" />
+    <ClCompile Include="..\src\core\Epoll.cpp" />
+    <ClCompile Include="..\src\core\EventLoop.cpp" />
     <ClCompile Include="..\src\core\IpAddress.cpp" />
     <ClCompile Include="..\src\core\IpEndPoint.cpp" />
+    <ClCompile Include="..\src\core\Poll.cpp" />
     <ClCompile Include="..\src\core\Select.cpp" />
     <ClCompile Include="..\src\core\Socket.cpp" />
+    <ClCompile Include="..\src\core\TcpConnection.cpp" />
+    <ClCompile Include="..\src\core\TcpServer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\core\Acceptor.h" />
     <ClInclude Include="..\src\core\Buffer.h" />
+    <ClInclude Include="..\src\core\CallBacks.h" />
     <ClInclude Include="..\src\core\Const.h" />
+    <ClInclude Include="..\src\core\Epoll.h" />
     <ClInclude Include="..\src\core\EventLoop.h" />
     <ClInclude Include="..\src\core\IpAddress.h" />
     <ClInclude Include="..\src\core\IpEndPoint.h" />
+    <ClInclude Include="..\src\core\Poll.h" />
     <ClInclude Include="..\src\core\Select.h" />
     <ClInclude Include="..\src\core\Socket.h" />
+    <ClInclude Include="..\src\core\TcpConnection.h" />
+    <ClInclude Include="..\src\core\TcpServer.h" />
+    <ClInclude Include="..\src\core\Utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A774521E-0250-482B-8966-336D143FDD1D}</ProjectGuid>

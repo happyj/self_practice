@@ -22,7 +22,7 @@
 #include <sys/select.h>
 #endif // _WIN32
 
-#include <unordered_map>
+#include "Poll.h"
 
 namespace Banana
 {
@@ -35,27 +35,24 @@ namespace Banana
 			int _events;
 		};
 
-		class CSelect
+		class CSelect : public CPoll
 		{
 		public:
 			CSelect();
-			~CSelect();
+			virtual ~CSelect();
+			CSelect(const CSelect&) = delete;
+			CSelect& operator=(const CSelect&) = delete;
 
 		public:
-			bool Register(int fd, int events);
-			void Unregister(int fd);
-			void Modify(int fd, int events);
-			int Poll(int timeout);
-			const std::unordered_map<int, int>& GetFds(void) const;
-
-		private:
-			int GetValue(int fd) const;
+			virtual bool Register(int fd, int events) override;
+			virtual bool Unregister(int fd) override;
+			virtual bool Modify(int fd, int events) override;
+			virtual int Poll(int microSeconds) override;
 
 		private:
 			fd_set _read_fds;
 			fd_set _write_fds;
 			fd_set _error_fds;
-			std::unordered_map<int, int> _fds;
 		};
 	}
 }

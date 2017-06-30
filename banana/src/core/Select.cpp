@@ -37,26 +37,30 @@ namespace Banana
 			return true;
 		}
 
-		void CSelect::Unregister(int fd)
+		bool CSelect::Unregister(int fd)
 		{
 			FD_CLR(fd, &_read_fds);
 			FD_CLR(fd, &_write_fds);
 			FD_CLR(fd, &_error_fds);
+
+			return true;
 		}
 		
-		void CSelect::Modify(int fd, int events)
+		bool CSelect::Modify(int fd, int events)
 		{
 			Unregister(fd);
 			Register(fd, events);
+
+			return true;
 		}
 
-		int CSelect::Poll(int timeout)
+		int CSelect::Poll(int microSeconds)
 		{
 			_fds.clear();
 
 			struct timeval t;
-			t.tv_sec = timeout;
-			t.tv_usec = 0;
+			t.tv_sec = 0;
+			t.tv_usec = microSeconds;
 
 			fd_set read_fds = _read_fds;
 			fd_set write_fds = _write_fds;
@@ -98,20 +102,6 @@ namespace Banana
 			}
 
 			return 0;
-		}
-
-		//-----------------------------------------------------------------
-
-		const std::unordered_map<int, int>& CSelect::GetFds(void) const
-		{
-			return _fds;
-		}
-
-		int CSelect::GetValue(int fd) const
-		{
-			auto e = _fds.find(fd);
-
-			return e == _fds.end() ? 0 : e->second;
 		}
 
 		//-----------------------------------------------------------------

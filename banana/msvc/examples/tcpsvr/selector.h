@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __h_banana_tcpsvr_selector_h__
+#define __h_banana_tcpsvr_selector_h__
+
 
 
 
@@ -266,3 +268,6 @@ namespace tcpsvr
         return 0;
     }
 }
+
+#endif
+

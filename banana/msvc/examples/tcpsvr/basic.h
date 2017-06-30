@@ -1,4 +1,20 @@
-#pragma once
+/*!
+ * \file basic.h
+ * \date 2017/06/29 17:19
+ *
+ * \author kerryhe
+ * Contact: user@company.com
+ *
+ * \brief 
+ *
+ * TODO: long description
+ *
+ * \note
+*/
+
+#ifndef __h_banana_tcpsvr_basic_h__
+#define __h_banana_tcpsvr_basic_h__
+
 
 
 #include <WS2tcpip.h>
@@ -85,3 +101,5 @@ namespace tcpsvr
 		return 0;
 	}
 }
+
+#endif	//
