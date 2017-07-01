@@ -18,13 +18,13 @@
 
 #include <unordered_map>
 #include "CallBacks.h"
-
+#include "IpAddress.h"
 
 namespace Banana
 {
     namespace Net
     {
-        class CIPEndPoint;
+        class CIPAddress;
         class CEventLoop;
         class CAcceptor;
 		class CTcpConnection;
@@ -38,8 +38,9 @@ namespace Banana
             CTcpServer& operator=(const CTcpServer&) = delete;
 
         public:
-			void Bind(const CIPEndPoint& ep);
+			void Bind(const CIPAddress& addr, unsigned short port);
             void Start(void);
+			void Stop(void);
 
 		private:
 

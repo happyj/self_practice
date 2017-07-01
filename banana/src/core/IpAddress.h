@@ -25,7 +25,12 @@ namespace Banana
     {
         class CIPAddress
         {
+        private:
             static const int INET_SUCCESS = 1;
+
+        public:
+            static const CIPAddress Any;
+            static const CIPAddress Loopback;
 
         public:
             CIPAddress();

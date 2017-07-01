@@ -8,18 +8,26 @@ namespace Banana
     {
         //-----------------------------------------------------------------
 
-        CSocket::CSocket(void)
-            : _sockfd(-1)
+        CSocket::CSocket(int fd)
+            : _sockfd(fd)
         {
-            if (!Init())
-            {
-                //throw exception
-            }
+
         }
         CSocket::~CSocket(void)
         {
-			Destroy();
+            if (_sockfd != INVALID_FD)
+            {
+#ifdef _WIN32
+                ::shutdown(_sockfd, SD_BOTH);
+                ::closesocket(_sockfd);
+#else
+                ::shutdown(_sockfd, SHUT_RDWR);
+                ::close(_sockfd);
+#endif
+            }
         }
+
+        //-----------------------------------------------------------------
 
         bool CSocket::Init(void)
         {
@@ -31,21 +39,6 @@ namespace Banana
 
             return true;
         }
-        void CSocket::Destroy(void)
-        {
-#ifdef _WIN32
-            if (::closesocket(_sockfd) < 0)
-#else
-            ::shutdown(_sockfd, SHUT_RDWR);
-            if (::close(_sockfd) < 0)
-#endif // DEBUG
-            {
-
-            }
-        }
-
-        //-----------------------------------------------------------------
-
         bool CSocket::Bind(const CIPEndPoint& localEP)
         {
             if (::bind(_sockfd, (sockaddr*)&_localAddr, sizeof(_localAddr)) < 0)
@@ -71,11 +64,11 @@ namespace Banana
             ::memset(&addr, 0, sizeof addr);
             int len = sizeof(addr);
             int fd = static_cast<int>(::accept(_sockfd, (sockaddr*)&addr, &len));
-			if (fd > 0)
-			{
-				_peerAddr.SetAddress(addr);
-			}
-			else if (fd == 0)
+            if (fd > 0)
+            {
+                _peerAddr.SetAddress(addr);
+            }
+            else if (fd == 0)
             {
                 //todo
             }
@@ -85,6 +78,14 @@ namespace Banana
             }
 
             return fd;
+        }
+        int CSocket::Send(const char* buf, int len)
+        {
+            return ::send(_sockfd, buf, len, 0);
+        }
+        int CSocket::Recv(char* buf, int len)
+        {
+            return ::recv(_sockfd, buf, len, 0);
         }
 
         //-----------------------------------------------------------------

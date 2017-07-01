@@ -45,7 +45,7 @@ namespace Banana
         }
         CIPEndPoint::CIPEndPoint(const CIPAddress& address, unsigned short port)
             : _addr(address)
-            , _port(::htons(port))
+            , _port(port)
         {
 
         }
@@ -74,12 +74,12 @@ namespace Banana
 			{
 			case AF_INET:
 				_sock4.sin_family = AF_INET;
-				_sock4.sin_port = _port;
-				_sock4.sin_addr.S_un.S_addr = _addr.Address();
+				_sock4.sin_port = ::htons(_port);
+				_sock4.sin_addr.S_un.S_addr = ::htonl(_addr.Address());
 				break;
 			case AF_INET6:
 				_sock6.sin6_family = AF_INET6;
-				_sock6.sin6_port = _port;
+				_sock6.sin6_port = ::htons(_port);
 				sprintf((char*)_sock6.sin6_addr.u.Byte, "%d", _addr.Address());
 				break;
 			default:
@@ -91,7 +91,7 @@ namespace Banana
 
         unsigned short CIPEndPoint::Port(void) const
         {
-            return ::ntohs(_port);
+			return _port;
         }
         const CIPAddress& CIPEndPoint::Address(void) const
         {

@@ -22,9 +22,12 @@ namespace Banana
 	namespace Net
 	{
 		class CIPEndPoint;
+		class CSocket;
+		class CBuffer;
 
 		class CTcpConnection
 		{
+			static const int IO_ERROR = -1;
 		public:
 			CTcpConnection(int fd, const CIPEndPoint& ep);
 			~CTcpConnection();
@@ -33,9 +36,18 @@ namespace Banana
 			int fd(void) const;
 			const CIPEndPoint& RemoteEndPoint(void) const;
 
+		public:
+			void HandleIO(int fd, int events);
+			bool Send(const char* buf, int len);
+			void Recv(char* buf, int len);
+			void Stop(void);
+
 		private:
 			int _fd;
 			CIPEndPoint _peerEp;
+			CSocket* _socket;
+			CBuffer* _recvBuf;
+			CBuffer* _sendBuf;
 		};
 	}
 }

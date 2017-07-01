@@ -40,6 +40,7 @@ namespace Banana
         };
 
 		const int _DEFAULT_BACKLOG = 32;
+		const int INVALID_FD = -1;
 
     }
 }

@@ -13,6 +13,9 @@ namespace Banana
 {
     namespace Net
     {
+		const CIPAddress CIPAddress::Any = CIPAddress("0.0.0.0");
+		const CIPAddress CIPAddress::Loopback = CIPAddress("127.0.0.1");
+
         //-----------------------------------------------------------------
 
         CIPAddress::CIPAddress()
