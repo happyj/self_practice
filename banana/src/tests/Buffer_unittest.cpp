@@ -4,6 +4,7 @@
 #include "core/Buffer.h"
 
 //-------------------------------------------------------------------
+using namespace Banana::Net;
 
 class CBufferTest : public testing::Test
 {

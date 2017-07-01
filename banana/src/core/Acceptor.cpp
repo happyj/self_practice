@@ -53,20 +53,20 @@ namespace Banana
 
         void CAcceptor::HandleRead(int fd, int events)
         {
-            int fd = _socket->Accept();
+            int ec = _socket->Accept();
 
-            if (fd > 0)
+            if (ec > 0)
             {
                 if (_newConnCallback != nullptr)
                 {
-                    _newConnCallback(fd, _socket->RemoteEndPoint());
+                    _newConnCallback(ec, _socket->RemoteEndPoint());
                 }
             }
-            else if (fd == 0)
+            else if (ec == 0)
             {
 
             }
-            else if (fd == -1)
+            else if (ec == -1)
             {
 
             }
