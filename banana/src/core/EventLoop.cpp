@@ -40,15 +40,26 @@ namespace Banana
             {
                 int count = _poller->Poll(10);
 
-                for (auto& e : _poller->GetFds())
-                {
-					auto it = _handlers.find(e.first);
-
-					if (it != _handlers.end() && it->second != nullptr)
+				if (count > 0)
+				{
+					for (auto& e : _poller->GetFds())
 					{
-						it->second(e.first, e.second);
+						auto it = _handlers.find(e.first);
+
+						if (it != _handlers.end() && it->second != nullptr)
+						{
+							it->second(e.first, e.second);
+						}
 					}
-                }
+				}
+				else if (count == 0)
+				{
+
+				}
+				else
+				{
+
+				}
             }
         }
 

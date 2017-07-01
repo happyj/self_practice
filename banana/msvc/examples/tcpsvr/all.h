@@ -23,7 +23,7 @@ namespace tcpsvr
 	{
 		Banana::Net::CTcpServer server;
 
-		server.Bind(Banana::Net::CIPAddress::Any, 6666);
+		server.Bind(Banana::Net::CIPAddress::Loopback, 6666);
 		server.Start();
 
 		return 0;

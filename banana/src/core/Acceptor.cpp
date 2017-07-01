@@ -35,6 +35,7 @@ namespace Banana
                               , std::bind(&CAcceptor::HandleRead, this, std::placeholders::_1, std::placeholders::_2)
                               , static_cast<int>(EventType::eEventType_Read));
 
+			_socket->Init();
 			_socket->Bind(_socket->LocalEndPoint());
             _socket->Listen();
         }

@@ -54,6 +54,7 @@ namespace Banana
         void CTcpServer::Start(void)
         {
             _acceptor->Start();
+			io_loop->Run();
         }
 
 		void CTcpServer::Stop()

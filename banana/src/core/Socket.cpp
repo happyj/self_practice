@@ -41,6 +41,9 @@ namespace Banana
         }
         bool CSocket::Bind(const CIPEndPoint& localEP)
         {
+			if (_sockfd != INVALID_FD)
+				return false;
+
             if (::bind(_sockfd, (sockaddr*)&_localAddr, sizeof(_localAddr)) < 0)
             {
                 return false;
