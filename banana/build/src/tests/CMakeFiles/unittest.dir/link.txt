@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/unittest.dir/Buffer_unittest.cpp.o CMakeFiles/unittest.dir/IpAddress_unittest.cpp.o  -o unittest  -L/Users/zhangjiaqi/codes/self_practice/banana/src/deps/lib -Wl,-rpath,/Users/zhangjiaqi/codes/self_practice/banana/src/deps/lib ../core/libcore.a 

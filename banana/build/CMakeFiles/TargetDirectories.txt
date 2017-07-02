@@ -1,8 +1,0 @@
-/Users/zhangjiaqi/codes/self_practice/banana/build/CMakeFiles/rebuild_cache.dir
-/Users/zhangjiaqi/codes/self_practice/banana/build/CMakeFiles/edit_cache.dir
-/Users/zhangjiaqi/codes/self_practice/banana/build/src/core/CMakeFiles/rebuild_cache.dir
-/Users/zhangjiaqi/codes/self_practice/banana/build/src/core/CMakeFiles/edit_cache.dir
-/Users/zhangjiaqi/codes/self_practice/banana/build/src/core/CMakeFiles/core.dir
-/Users/zhangjiaqi/codes/self_practice/banana/build/src/tests/CMakeFiles/rebuild_cache.dir
-/Users/zhangjiaqi/codes/self_practice/banana/build/src/tests/CMakeFiles/edit_cache.dir
-/Users/zhangjiaqi/codes/self_practice/banana/build/src/tests/CMakeFiles/unittest.dir
