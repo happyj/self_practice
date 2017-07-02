@@ -8,6 +8,8 @@
 
 #include <functional>
 
+#include "glog/logging.h"
+
 namespace Banana
 {
     namespace Net
@@ -17,8 +19,8 @@ namespace Banana
         CTcpServer::CTcpServer()
             : _started(false)
             , _stopped(false)
-			, io_loop(new CEventLoop())
-			, _acceptor(nullptr)
+            , io_loop(new CEventLoop())
+            , _acceptor(nullptr)
         {
 
         }
@@ -28,10 +30,10 @@ namespace Banana
             SAFE_DELETE(io_loop);
             SAFE_DELETE(_acceptor);
 
-			for (auto& conn : _conns)
-			{
-				//conn->second->Stop();
-			}
+            for (auto& conn : _conns)
+            {
+                //conn->second->Stop();
+            }
         }
 
         //----------------------------------------------------------
@@ -41,7 +43,9 @@ namespace Banana
             //_acceptor = new CAcceptor(ep, std::bind(&CTcpServer::HandleConnection, this, std::placeholders::_1, std::placeholders::_2));
             _acceptor = new CAcceptor(io_loop, CIPEndPoint(addr, port), [&](int fd, const CIPEndPoint & ep)
             {
-				printf("new conn: %d\n", fd);
+                printf("new conn: %d, %s\n", fd, ep.ToString().c_str());
+				LOG(INFO) << "create new connection, fd: " << fd << ", remote end point: " << ep.ToString().c_str();
+
                 CTcpConnection* conn = new CTcpConnection(fd, ep);
                 _conns.insert(std::make_pair(fd, conn));
 
@@ -54,13 +58,13 @@ namespace Banana
         void CTcpServer::Start(void)
         {
             _acceptor->Start();
-			io_loop->Run();
+            io_loop->Run();
         }
 
-		void CTcpServer::Stop()
-		{
+        void CTcpServer::Stop()
+        {
 
-		}
+        }
 
         //----------------------------------------------------------
 

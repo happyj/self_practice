@@ -21,6 +21,14 @@ namespace tcpsvr
 {
 	int RunCore()
 	{
+		/*º”‘ÿWinsock DLL*/
+		WSADATA        wsd;
+		if (WSAStartup(MAKEWORD(2, 2), &wsd) != 0)
+		{
+			printf("WinSock ≥ı ºªØ ß∞‹!\n");
+			return 1;
+		}
+
 		Banana::Net::CTcpServer server;
 
 		server.Bind(Banana::Net::CIPAddress::Loopback, 6666);

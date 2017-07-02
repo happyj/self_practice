@@ -3,6 +3,8 @@
 #include "Epoll.h"
 
 #include <sys/epoll.h>
+#include <string.h>
+#include <unistd.h>
 
 namespace Banana
 {
@@ -43,8 +45,6 @@ namespace Banana
 		bool CEpoll::Unregister(int fd)
 		{
 			struct epoll_event ev;
-			ev.events = events;
-			ev.data.fd = fd;
 
 			if (epoll_ctl(_fd, EPOLL_CTL_DEL, fd, &ev) == -1)
 				return false;

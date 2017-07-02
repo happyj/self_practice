@@ -38,35 +38,33 @@ namespace Banana
         //-----------------------------------------------------------------
 
         CIPEndPoint::CIPEndPoint()
-            : _addr()
-            , _port(0)
         {
-
+			Init(CIPAddress::Any, 0);
         }
         CIPEndPoint::CIPEndPoint(const CIPAddress& address, unsigned short port)
             : _addr(address)
             , _port(port)
         {
-
+			Init(address, port);
         }
         CIPEndPoint::CIPEndPoint(const CIPEndPoint& ep)
-            : _addr(ep._addr)
-            , _port(ep._port)
         {
-
+			Init(ep.Address(), ep.Port());
         }
         CIPEndPoint& CIPEndPoint::operator=(const CIPEndPoint& ep)
         {
             if (this == &ep)
                 return *this;
 
-			_addr = ep._addr;
-			_port = ep._port;
+			Init(ep.Address(), ep.Port());
 
             return *this;
         }
-		void CIPEndPoint::Init(void)
+		void CIPEndPoint::Init(const CIPAddress& addr, unsigned short port)
 		{
+			_addr = addr;
+			_port = port;
+
 			::memset(&_sock4, 0, sizeof _sock4);
 			::memset(&_sock6, 0, sizeof _sock6);
 
@@ -101,6 +99,11 @@ namespace Banana
         {
             return _addr.Family();
         }
+		std::string CIPEndPoint::ToString(void) const
+		{
+			char tmp[10];
+			return _addr.ToString() + ":" + itoa(_port, tmp, 10);
+		}
 
         //-----------------------------------------------------------------
 

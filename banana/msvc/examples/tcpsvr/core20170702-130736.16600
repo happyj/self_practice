@@ -1,0 +1,4 @@
+Log file created at: 2017/07/02 13:07:36
+Running on machine: KERRYHE-PC3
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0702 13:07:36.797228 18440 socket.cpp:68] Successfully bind fd: 100 to address: 

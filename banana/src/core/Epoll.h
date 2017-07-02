@@ -36,8 +36,8 @@ namespace Banana
 
 		public:
 			virtual bool Register(int fd, int events) override;
-			virtual void Unregister(int fd) override;
-			virtual void Modify(int fd, int events) override;
+			virtual bool Unregister(int fd) override;
+			virtual bool Modify(int fd, int events) override;
 			virtual int Poll(int microSeconds) override;
 
 		private:

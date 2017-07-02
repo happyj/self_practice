@@ -1,4 +1,5 @@
 #include "Buffer.h"
+#include <string.h>
 
 namespace Banana
 {
@@ -28,25 +29,25 @@ namespace Banana
             else
                 return _writePos == _readPos;
         }
-        size_t CBuffer::UsedCapacity(void) const
+        std::size_t CBuffer::UsedCapacity(void) const
         {
             if (!_flipped)
                 return _writePos - _readPos;
             else
                 return Capacity() - _readPos + _writePos;
         }
-        size_t CBuffer::RemainedCapacity(void) const
+        std::size_t CBuffer::RemainedCapacity(void) const
         {
             return Capacity() - UsedCapacity();
         }
-        size_t CBuffer::Capacity(void) const
+        std::size_t CBuffer::Capacity(void) const
         {
             return _buf.capacity();
         }
 
         //-----------------------------------------------------------------
 
-        bool CBuffer::Peek(char* data, size_t len)
+        bool CBuffer::Peek(char* data, std::size_t len)
         {
             if (data == nullptr)
                 return false;
@@ -55,12 +56,12 @@ namespace Banana
             if (len > UsedCapacity())
                 return false;
 
-            size_t readPos = _readPos;
+            std::size_t readPos = _readPos;
             bool flipped = _flipped;
 
             return Read(readPos, flipped, data, len);
         }
-        bool CBuffer::Read(char* data, size_t len)
+        bool CBuffer::Read(char* data, std::size_t len)
         {
             if (data == nullptr)
                 return false;
@@ -71,7 +72,7 @@ namespace Banana
 
             return Read(_readPos, _flipped, data, len);
         }
-        bool CBuffer::Read(size_t& readPos, bool& flipped, char* data, size_t len)
+        bool CBuffer::Read(std::size_t& readPos, bool& flipped, char* data, std::size_t len)
         {
             if (!_flipped)
             {
@@ -87,7 +88,7 @@ namespace Banana
                 }
                 else
                 {
-                    size_t tail = Capacity() - _readPos;
+                    std::size_t tail = Capacity() - _readPos;
                     ::memcpy(data, begin() + _readPos, tail);
                     ::memcpy(data + tail, begin(), len - tail);
                     readPos = len - tail;
@@ -97,7 +98,7 @@ namespace Banana
 
             return true;
         }
-        bool CBuffer::Write(const char* data, size_t len)
+        bool CBuffer::Write(const char* data, std::size_t len)
         {
             if (data == nullptr)
                 return false;
@@ -113,7 +114,7 @@ namespace Banana
                 }
                 else
                 {
-                    size_t tail = Capacity() - _writePos;
+                    std::size_t tail = Capacity() - _writePos;
                     std::copy(data, data + tail, _buf.begin() + _writePos);
                     std::copy(data + tail, data + len, _buf.begin());
                     _writePos = len - tail;

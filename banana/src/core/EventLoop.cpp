@@ -3,7 +3,7 @@
 #include "Poll.h"
 #include "Select.h"
 #include "Utils.h"
-
+#include <assert.h>
 
 namespace Banana
 {
@@ -67,6 +67,7 @@ namespace Banana
 
 		void CEventLoop::AddHandler(int fd, FdHander handler, int events)
         {
+			assert(fd != INVALID_FD);
 			_handlers.emplace(fd, handler);
 			_poller->Register(fd, events | static_cast<int>(EventType::eEventType_Error));
         }

@@ -19,6 +19,12 @@ namespace Banana
             , _listenning(false)
             , _newConnCallback(callback)
         {
+            _socket->Init();
+            _socket->Bind(ep);
+
+            _loop->AddHandler(_socket->fd()
+                              , std::bind(&CAcceptor::HandleRead, this, std::placeholders::_1, std::placeholders::_2)
+                              , static_cast<int>(EventType::eEventType_Read));
         }
         CAcceptor::~CAcceptor()
         {
@@ -29,14 +35,8 @@ namespace Banana
 
         void CAcceptor::Start(void)
         {
-            _listenning = true;
+			_listenning = true;
 
-            _loop->AddHandler(_socket->fd()
-                              , std::bind(&CAcceptor::HandleRead, this, std::placeholders::_1, std::placeholders::_2)
-                              , static_cast<int>(EventType::eEventType_Read));
-
-			_socket->Init();
-			_socket->Bind(_socket->LocalEndPoint());
             _socket->Listen();
         }
 
@@ -44,7 +44,7 @@ namespace Banana
         {
             _listenning = false;
 
-			_loop->RemoveHandler(_socket->fd());
+            _loop->RemoveHandler(_socket->fd());
         }
 
         bool CAcceptor::Listenning(void) const

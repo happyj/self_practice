@@ -1,16 +1,26 @@
-set(core_src
-  Acceptor.cpp
-  Buffer.cpp
-  Epoll.cpp
-  EventLoop.cpp
-  IpAddress.cpp
-  IpEndPoint.cpp
-  Poll.cpp
-  Select.cpp
-  Socket.cpp
-  TcpConnection.cpp
-  TcpServer.cpp)
+# set(core_src
+  # Acceptor.cpp
+  # Buffer.cpp
+  # Epoll.cpp
+  # EventLoop.cpp
+  # IpAddress.cpp
+  # IpEndPoint.cpp
+  # Poll.cpp
+  # Select.cpp
+  # Socket.cpp
+  # TcpConnection.cpp
+  # TcpServer.cpp)
 
-add_library(core ${core_src})
-#target_link_libraries(core_cpp11 pthread rt)
-#set_target_properties(core_cpp11 PROPERTIES compile_flags "-std=cxx0x")
+include_directories(${UTILS_DIR})
+
+link_directories(${project_binary_dir}/lib)
+  
+aux_source_directory(./ core_src)
+
+add_library(${PROJECT_CORE_NAME} ${core_src})
+
+add_dependencies(${PROJECT_CORE_NAME}
+    ${PROJECT_UTILS_NAME})
+
+target_link_libraries(${PROJECT_CORE_NAME}
+    ${PROJECT_UTILS_NAME})

@@ -33,16 +33,16 @@ namespace Banana
         public:
             bool IsEmpty(void) const;
             bool IsFull(void) const;
-            size_t UsedCapacity(void) const;
-            size_t RemainedCapacity(void) const;
-            size_t Capacity(void) const;
+            std::size_t UsedCapacity(void) const;
+            std::size_t RemainedCapacity(void) const;
+            std::size_t Capacity(void) const;
 
         public:
-            bool Peek(char* data, size_t len);
-            bool Read(char* data, size_t len);
-            bool Write(const char* data, size_t len);
+            bool Peek(char* data, std::size_t len);
+            bool Read(char* data, std::size_t len);
+            bool Write(const char* data, std::size_t len);
         private:
-            bool Read(size_t& readPos, bool& flipped, char* data, size_t len);
+            bool Read(std::size_t& readPos, bool& flipped, char* data, std::size_t len);
 
         private:
             char* begin()
@@ -51,8 +51,8 @@ namespace Banana
             }
 
         private:
-            size_t _readPos;
-            size_t _writePos;
+            std::size_t _readPos;
+            std::size_t _writePos;
             bool _flipped;
             std::vector<char> _buf;
         };

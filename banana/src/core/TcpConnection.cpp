@@ -49,7 +49,7 @@ namespace Banana
 				int bytes = ::recv(_fd, buf, 100, 0);
 				if (bytes > 0)
 				{
-					printf("sock: %d recv buf: %s\n", buf);
+					printf("sock: %d recv buf: %s\n", fd, buf);
 					::send(_fd, buf, strlen(buf), 0);
 				}
 				else
