@@ -30,7 +30,6 @@
 # define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "stdafx.h"
 #include "posix.h"
 
 #include <limits.h>

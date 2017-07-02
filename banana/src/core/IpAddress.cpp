@@ -32,8 +32,13 @@ namespace Banana
         {
             Init(ip.c_str());
         }
+        #ifdef _WIN32
         CIPAddress::CIPAddress(long ip)
             : _addr(::htonl(ip))
+        #else
+            CIPAddress::CIPAddress(long ip)
+            : _addr(ip)
+        #endif
             , _family(AF_UNSPEC)
         {
             //检查ip的合法性

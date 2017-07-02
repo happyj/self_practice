@@ -1,7 +1,12 @@
 #include "IpEndPoint.h"
 #include "assert.h"
+#include "glog/logging.h"
 
-
+#ifdef _WIN32
+#include <WS2tcpip.h>
+#else
+#include <arpa/inet.h>
+#endif
 
 
 //     /* Structure describing an Internet socket address.  */
@@ -67,7 +72,7 @@ namespace Banana
 
 			::memset(&_sock4, 0, sizeof _sock4);
 			::memset(&_sock6, 0, sizeof _sock6);
-
+#ifdef _WIN32
 			switch (Family())
 			{
 			case AF_INET:
@@ -83,6 +88,31 @@ namespace Banana
 			default:
 				break;
 			}
+#else
+            switch (Family())
+            {
+            case AF_INET:
+                _sock4.sin_family = AF_INET;
+                _sock4.sin_port = ::htons(_port);
+                if (::inet_pton(AF_INET, "", &_sock4.sin_addr) <= 0)
+                {
+                    LOG(ERROR) << "failed to convert ipv4 address";
+                }
+                //_sock4.sin_addr = ::htonl(_addr.Address());
+                break;
+            case AF_INET6:
+                _sock6.sin6_family = AF_INET6;
+                _sock6.sin6_port = ::htons(_port);
+                if (::inet_pton(AF_INET6, "ip", &addr->sin6_addr) <= 0)
+                {
+                    LOG(ERROR) << "failed to convert ipv6 address";
+                }
+                //sprintf((char*)_sock6.sin6_addr.u.Byte, "%d", _addr.Address());
+                break;
+            default:
+                break;
+            }
+#endif            
 		}
 
         //-----------------------------------------------------------------
