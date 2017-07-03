@@ -1,6 +1,7 @@
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <iostream>
+#include "glog/logging.h"
 
 #pragma comment(lib , "ws2_32.lib")
 
@@ -15,11 +16,19 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
+	google::InitGoogleLogging(argv[0]);  //参数为自己的可执行文件名  
+
+	google::SetLogDestination(google::GLOG_INFO, "./tcpcli");
+
+
 	int _fd = ::socket(AF_INET, SOCK_STREAM, 0);
 	if (_fd < 0)
 	{
+		LOG(ERROR) << "failed";
 		return -1;
 	}
+
+	LOG(INFO) << "socket() success";
 
 	sockaddr_in _addr;
 	::memset(&_addr, 0, sizeof(_addr));

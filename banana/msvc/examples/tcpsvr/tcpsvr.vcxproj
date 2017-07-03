@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\glog.0.3.3.0\build\native\glog.props" Condition="Exists('..\..\packages\glog.0.3.3.0\build\native\glog.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -95,7 +96,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)/../src/deps/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libglog.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -155,7 +156,20 @@
       <Project>{a774521e-0250-482b-8966-336d143fdd1d}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\..\packages\gflags.2.0.1.0\build\native\gflags.targets" Condition="Exists('..\..\packages\gflags.2.0.1.0\build\native\gflags.targets')" />
+    <Import Project="..\..\packages\glog.0.3.3.0\build\native\glog.targets" Condition="Exists('..\..\packages\glog.0.3.3.0\build\native\glog.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\gflags.2.0.1.0\build\native\gflags.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\gflags.2.0.1.0\build\native\gflags.targets'))" />
+    <Error Condition="!Exists('..\..\packages\glog.0.3.3.0\build\native\glog.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\glog.0.3.3.0\build\native\glog.props'))" />
+    <Error Condition="!Exists('..\..\packages\glog.0.3.3.0\build\native\glog.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\glog.0.3.3.0\build\native\glog.targets'))" />
+  </Target>
 </Project>
