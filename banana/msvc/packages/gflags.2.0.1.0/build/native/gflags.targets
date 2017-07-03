@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="gflags_init_targets_0;gflags_init_targets_1;gflags_init_targets_2;gflags_ItemGroupInit_targets_3">
+  <PropertyGroup Label="Default initializers for properties">
+    <Linkages-gflags Condition="'$(Linkages-gflags)' == ''">dynamic</Linkages-gflags>
+    <CallingConventions-gflags Condition="'$(CallingConventions-gflags)' == ''">cdecl</CallingConventions-gflags>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../..//build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="static" Condition="'$(Linkages-gflags.ToLower())' == 'static'">
+    <ClCompile>
+      <PreprocessorDefinitions>GFLAGS_DLL_DECL_FOR_UNITTESTS=;GFLAGS_DLL_DEFINE_FLAG=;GFLAGS_DLL_DECLARE_FLAG=;GFLAGS_DLL_DECL=;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Release and static" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/static/libgflags-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v100 and Debug and static" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v100/Debug/static/libgflags-static-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/dynamic/libgflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Debug and static" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/static/libgflags-static-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Release and static" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/static/libgflags-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/dynamic/libgflags-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Release/dynamic/libgflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/dynamic/libgflags-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Debug and static" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Debug/static/libgflags-static-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v100 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v100/Release/dynamic/libgflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v100 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v100/Debug/dynamic/libgflags-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Release/dynamic/libgflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v120 and Debug and static" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v120/Debug/static/libgflags-static-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/dynamic/libgflags-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v100 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v100/Release/dynamic/libgflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Release and static" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Release/static/libgflags-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v100 and Release and static" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v100/Release/static/libgflags-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v110 and Debug and static" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v110/Debug/static/libgflags-static-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v110 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v110/Debug/dynamic/libgflags-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Release and static" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/static/libgflags-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v100 and Release and static" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v100/Release/static/libgflags-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and v100 and Debug and static" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/Win32/v100/Debug/static/libgflags-static-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v120 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v120/Release/dynamic/libgflags.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and v100 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../../build/native/lib/x64/v100/Debug/dynamic/libgflags-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Target Name="gflags_AfterBuild" AfterTargets="AfterBuild">
+    <Copy SkipUnchangedFiles="true" SourceFiles="@(CopyToOutput)" UseHardlinksIfPossible="true" DestinationFolder="$(TargetDir)">
+      <Output TaskParameter="DestinationFiles" PropertyName="DestinationFiles" />
+      <Output TaskParameter="DestinationFiles" ItemName="DestinationFiles" />
+      <Output TaskParameter="CopiedFiles" PropertyName="CopiedFiles" />
+      <Output TaskParameter="CopiedFiles" ItemName="CopiedFiles" />
+    </Copy>
+  </Target>
+  <Target Name="gflags_BeforeLink" AfterTargets="BeforeLink">
+    <CheckRuntimeLibrary RuntimeLibrary="%(ClCompile.RuntimeLibrary)" ExpectedRuntimeLibrary="none" LibraryName="gflags" />
+  </Target>
+  <Target Name="gflags_BeforeLink_Debug_and_static" Label="Debug and static" Condition="( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" AfterTargets="gflags_BeforeLink">
+    <CheckRuntimeLibrary RuntimeLibrary="%(ClCompile.RuntimeLibrary)" ExpectedRuntimeLibrary="MultiThreadedDebug" LibraryName="gflags" />
+  </Target>
+  <Target Name="gflags_BeforeLink_Release_and_static" Label="Release and static" Condition="( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" AfterTargets="gflags_BeforeLink">
+    <CheckRuntimeLibrary RuntimeLibrary="%(ClCompile.RuntimeLibrary)" ExpectedRuntimeLibrary="MultiThreaded" LibraryName="gflags" />
+  </Target>
+  <Target Name="gflags_init_targets_1">
+    <StringContains Text="Linkages-dynamic" Library="gflags" Value="dynamic" Condition="'$(Linkages-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-gflags" />
+    </StringContains>
+    <StringContains Text="Linkages-static" Library="gflags" Value="static" Condition="'$(Linkages-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-gflags" />
+    </StringContains>
+    <StringContains Text="Linkages-ltcg" Library="gflags" Value="ltcg" Condition="'$(Linkages-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-gflags" />
+    </StringContains>
+    <StringContains Text="Linkages-sxs" Library="gflags" Value="sxs" Condition="'$(Linkages-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkages-gflags" />
+    </StringContains>
+    <StringContains Text="CallingConventions-cdecl" Library="gflags" Value="cdecl" Condition="'$(CallingConventions-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-gflags" />
+    </StringContains>
+    <StringContains Text="CallingConventions-stdcall" Library="gflags" Value="stdcall" Condition="'$(CallingConventions-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-gflags" />
+    </StringContains>
+    <StringContains Text="CallingConventions-fastcall" Library="gflags" Value="fastcall" Condition="'$(CallingConventions-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-gflags" />
+    </StringContains>
+    <StringContains Text="CallingConventions-thiscall" Library="gflags" Value="thiscall" Condition="'$(CallingConventions-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-gflags" />
+    </StringContains>
+    <StringContains Text="CallingConventions-clrcall" Library="gflags" Value="clrcall" Condition="'$(CallingConventions-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-gflags" />
+    </StringContains>
+    <StringContains Text="CallingConventions-vectorcall" Library="gflags" Value="vectorcall" Condition="'$(CallingConventions-gflags)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConventions-gflags" />
+    </StringContains>
+  </Target>
+  <Target Name="gflags_init_targets_2">
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Release/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Debug/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Release/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Debug/dynamic">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+  </Target>
+  <Target Name="gflags_ItemGroupInit_targets_3">
+    <ItemGroup Label="x64 and v110 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/dynamic/libgflags.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/dynamic/libgflags.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Release/dynamic/libgflags.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v120 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/dynamic/libgflags-debug.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/dynamic/libgflags-debug.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Debug/dynamic/libgflags-debug.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v110 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/dynamic/libgflags.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/dynamic/libgflags.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Release/dynamic/libgflags.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v120 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/dynamic/libgflags-debug.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/dynamic/libgflags-debug.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Debug/dynamic/libgflags-debug.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v100 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Release/dynamic/libgflags.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Release/dynamic/libgflags.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Release/dynamic/libgflags.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v100 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Debug/dynamic/libgflags-debug.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Debug/dynamic/libgflags-debug.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v100/Debug/dynamic/libgflags-debug.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v120 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/dynamic/libgflags.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/dynamic/libgflags.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v120/Release/dynamic/libgflags.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="Win32 and v110 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/dynamic/libgflags-debug.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/dynamic/libgflags-debug.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/Win32/v110/Debug/dynamic/libgflags-debug.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v100 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Release/dynamic/libgflags.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Release/dynamic/libgflags.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Release/dynamic/libgflags.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v110 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/dynamic/libgflags-debug.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/dynamic/libgflags-debug.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v110/Debug/dynamic/libgflags-debug.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v120 and Release and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/dynamic/libgflags.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/dynamic/libgflags.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v120/Release/dynamic/libgflags.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+    <ItemGroup Label="x64 and v100 and Debug and dynamic" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'">
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Debug/dynamic/libgflags-debug.dll" />
+      <CopyToOutput Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Debug/dynamic/libgflags-debug.pdb" />
+      <None Include="$(MSBuildThisFileDirectory)../../build/native/bin/x64/v100/Debug/dynamic/libgflags-debug.dll">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+  </Target>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\default-propertiesui.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\gflags-propertiesui-16dcd86f-38c4-4230-b6e1-0bf27185bac6.xml" />
+  </ItemGroup>
+  <UsingTask TaskName="NuGetPackageOverlay" AssemblyFile="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" Condition="'$(DesignTimeBuild)' != 'true' AND ('$(NugetMsBuildExtensionLoaded)' == '' OR '$(NugetMsBuildExtensionLoaded)' == 'false')" />
+  <UsingTask TaskName="CheckRuntimeLibrary" AssemblyFile="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" Condition="'$(DesignTimeBuild)' != 'true' AND ('$(NugetMsBuildExtensionLoaded)' == '' OR '$(NugetMsBuildExtensionLoaded)' == 'false')" />
+  <UsingTask TaskName="StringContains" AssemblyFile="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" Condition="'$(DesignTimeBuild)' != 'true' AND ('$(NugetMsBuildExtensionLoaded)' == '' OR '$(NugetMsBuildExtensionLoaded)' == 'false')" />
+  <Target Name="gflags_init_targets_0">
+    <Copy SkipUnchangedFiles="true" SourceFiles="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll.orig" DestinationFiles="$(NuGet-NativeExtensionPath)\coapp.NuGetNativeMSBuildTasks.dll" />
+    <PropertyGroup>
+      <NugetMsBuildExtensionLoaded Condition="'$(NugetMsBuildExtensionLoaded)' == '' OR '$(NuGet-OverlayLoaded)' == 'false'">true</NugetMsBuildExtensionLoaded>
+    </PropertyGroup>
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v120_Release_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v100_Debug_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v110_Release_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v110_Debug_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v110_Release_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v120_Debug_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v110_Release_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v120_Debug_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v120_Debug_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v100_Release_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v100_Debug_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v120_Release_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v120_Debug_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v110_Debug_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v100_Release_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v110_Release_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v100_Release_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v110_Debug_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v110_Debug_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v110' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v120_Release_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v100_Release_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-Win32_v100_Debug_static" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'static'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v120_Release_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And ( '$(PlatformToolset.ToLower())' == 'v120' Or '$(PlatformToolset.ToLower())' == 'windowskernelmodedriver8.0' Or '$(PlatformToolset.ToLower())' == 'windowsapplicationfordrivers8.0' Or '$(PlatformToolset.ToLower())' == 'windowsusermodedriver8.0' ) And ( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+    <NuGetPackageOverlay Package="gflags.overlay-x64_v100_Debug_dynamic" Version="$(Needs-gflags-Version)" PackageDirectory="$(MSBuildThisFileDirectory)\..\.." SolutionDirectory="$(SolutionDir)" Condition="'$(Platform.ToLower())' == 'x64' And '$(PlatformToolset.ToLower())' == 'v100' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkages-gflags.ToLower())' == 'dynamic'" />
+  </Target>
+</Project>
