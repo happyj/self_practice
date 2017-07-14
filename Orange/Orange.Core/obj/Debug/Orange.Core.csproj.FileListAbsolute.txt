@@ -1,0 +1,7 @@
+F:\10 源代码\self_practice\Orange\Orange.Core\bin\Debug\Orange.Core.dll
+F:\10 源代码\self_practice\Orange\Orange.Core\bin\Debug\Orange.Core.pdb
+F:\10 源代码\self_practice\Orange\Orange.Core\obj\Debug\Orange.Core.csprojResolveAssemblyReference.cache
+F:\10 源代码\self_practice\Orange\Orange.Core\obj\Debug\Orange.Core.dll
+F:\10 源代码\self_practice\Orange\Orange.Core\obj\Debug\Orange.Core.pdb
+F:\10 源代码\self_practice\Orange\Orange.Core\bin\Debug\log4net.dll
+F:\10 源代码\self_practice\Orange\Orange.Core\bin\Debug\log4net.xml

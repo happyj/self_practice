@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Tests", "Orange.Tests\Orange.Tests.csproj", "{730C6223-DCAF-4072-826A-4BBB1820E800}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Core", "Orange.Core\Orange.Core.csproj", "{4BD8E61E-B5AC-469A-A219-23880AAEDEE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{730C6223-DCAF-4072-826A-4BBB1820E800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730C6223-DCAF-4072-826A-4BBB1820E800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730C6223-DCAF-4072-826A-4BBB1820E800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730C6223-DCAF-4072-826A-4BBB1820E800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD8E61E-B5AC-469A-A219-23880AAEDEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD8E61E-B5AC-469A-A219-23880AAEDEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD8E61E-B5AC-469A-A219-23880AAEDEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD8E61E-B5AC-469A-A219-23880AAEDEE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

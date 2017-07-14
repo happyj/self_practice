@@ -1,0 +1,14 @@
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Orange.Tests.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Orange.Tests.pdb
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Orange.Core.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Orange.Core.pdb
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+F:\10 源代码\self_practice\Orange\Orange.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\10 源代码\self_practice\Orange\Orange.Tests\obj\Debug\Orange.Tests.csprojResolveAssemblyReference.cache
+F:\10 源代码\self_practice\Orange\Orange.Tests\obj\Debug\Orange.Tests.dll
+F:\10 源代码\self_practice\Orange\Orange.Tests\obj\Debug\Orange.Tests.pdb
